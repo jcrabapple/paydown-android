@@ -45,51 +45,53 @@ class _PaydownAppState extends State<PaydownApp> {
 
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
-        animation: _theme,
-        builder: (context, _) => MaterialApp(
-          title: 'Paydown',
-          theme: kPaydownTheme,
-          darkTheme: kPaydownDarkTheme,
-          themeMode: _theme.mode,
-          home: FutureBuilder<Credentials?>(
-            // Re-reads credentials when the session key bumps (sign-in/out).
-            key: ValueKey(_session),
-            future: (widget.bootstrap ?? _auth.read)(),
-            builder: (context, snap) {
-              // Gate on connectionState, never hasData: a completed future with
-              // no stored credentials has data null, and hasData would spin
-              // forever on the loading screen.
-              if (snap.connectionState != ConnectionState.done) {
-                return const Scaffold(
-                    body: Center(child: CircularProgressIndicator()));
-              }
-              if (snap.hasError) {
-                return Scaffold(
-                  body: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text('Could not read stored credentials.'),
-                        const SizedBox(height: 8),
-                        FilledButton(
-                          onPressed: () => setState(() => _session++),
-                          child: const Text('Retry'),
-                        ),
-                      ],
+    animation: _theme,
+    builder: (context, _) => MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Paydown',
+      theme: kPaydownTheme,
+      darkTheme: kPaydownDarkTheme,
+      themeMode: _theme.mode,
+      home: FutureBuilder<Credentials?>(
+        // Re-reads credentials when the session key bumps (sign-in/out).
+        key: ValueKey(_session),
+        future: (widget.bootstrap ?? _auth.read)(),
+        builder: (context, snap) {
+          // Gate on connectionState, never hasData: a completed future with
+          // no stored credentials has data null, and hasData would spin
+          // forever on the loading screen.
+          if (snap.connectionState != ConnectionState.done) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }
+          if (snap.hasError) {
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text('Could not read stored credentials.'),
+                    const SizedBox(height: 8),
+                    FilledButton(
+                      onPressed: () => setState(() => _session++),
+                      child: const Text('Retry'),
                     ),
-                  ),
-                );
-              }
-              return _Root(
-                auth: _auth,
-                creds: snap.data,
-                theme: _theme,
-                onSessionChange: () => setState(() => _session++),
-              );
-            },
-          ),
-        ),
-      );
+                  ],
+                ),
+              ),
+            );
+          }
+          return _Root(
+            auth: _auth,
+            creds: snap.data,
+            theme: _theme,
+            onSessionChange: () => setState(() => _session++),
+          );
+        },
+      ),
+    ),
+  );
 }
 
 /// Session root: builds the ApiClient for the stored credentials and shows
@@ -157,6 +159,7 @@ class _RootState extends State<_Root> {
     final client = _client;
     if (client == null) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Paydown',
         theme: kPaydownTheme,
         darkTheme: kPaydownDarkTheme,
@@ -172,14 +175,18 @@ class _RootState extends State<_Root> {
     return ApiScope(
       client: client,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Paydown',
         theme: kPaydownTheme,
         darkTheme: kPaydownDarkTheme,
         themeMode: widget.theme.mode,
-        home: HomeShell(theme: widget.theme, onSignOut: () async {
-          await widget.auth.clear();
-          widget.onSessionChange();
-        }),
+        home: HomeShell(
+          theme: widget.theme,
+          onSignOut: () async {
+            await widget.auth.clear();
+            widget.onSessionChange();
+          },
+        ),
       ),
     );
   }
@@ -207,29 +214,34 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Paydown'),
-          actions: [
-            IconButton(
-              tooltip: 'Sign out',
-              icon: const Icon(Icons.logout),
-              onPressed: () => widget.onSignOut(),
-            ),
-          ],
+    appBar: AppBar(
+      title: const Text('Paydown'),
+      actions: [
+        IconButton(
+          tooltip: 'Sign out',
+          icon: const Icon(Icons.logout),
+          onPressed: () => widget.onSignOut(),
         ),
-        body: IndexedStack(index: _tab, children: [
-          for (final t in _tabs) t.body,
-          MoreScreen(theme: widget.theme),
-        ]),
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: _tab,
-          onDestinationSelected: (i) => setState(() => _tab = i),
-          destinations: [
-            for (final t in _tabs)
-              NavigationDestination(icon: Icon(t.icon), label: t.label),
-            const NavigationDestination(
-                icon: Icon(Icons.more_horiz), label: 'More'),
-          ],
+      ],
+    ),
+    body: IndexedStack(
+      index: _tab,
+      children: [
+        for (final t in _tabs) t.body,
+        MoreScreen(theme: widget.theme),
+      ],
+    ),
+    bottomNavigationBar: NavigationBar(
+      selectedIndex: _tab,
+      onDestinationSelected: (i) => setState(() => _tab = i),
+      destinations: [
+        for (final t in _tabs)
+          NavigationDestination(icon: Icon(t.icon), label: t.label),
+        const NavigationDestination(
+          icon: Icon(Icons.more_horiz),
+          label: 'More',
         ),
-      );
+      ],
+    ),
+  );
 }

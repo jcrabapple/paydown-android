@@ -54,7 +54,10 @@ class _BillsScreenState extends State<BillsScreen> {
     });
   }
 
-  Future<void> _mutate(String message, Future<dynamic> Function() action) async {
+  Future<void> _mutate(
+    String message,
+    Future<dynamic> Function() action,
+  ) async {
     try {
       await action();
     } on ApiError catch (e) {
@@ -71,12 +74,14 @@ class _BillsScreenState extends State<BillsScreen> {
     required String kind,
     Map<String, dynamic>? existing,
   }) {
-    final name =
-        TextEditingController(text: (existing?['name'] as String?) ?? '');
+    final name = TextEditingController(
+      text: (existing?['name'] as String?) ?? '',
+    );
     final amount = TextEditingController(
-        text: existing == null
-            ? ''
-            : ((existing['amount_cents'] as int) / 100.0).toStringAsFixed(2));
+      text: existing == null
+          ? ''
+          : ((existing['amount_cents'] as int) / 100.0).toStringAsFixed(2),
+    );
     final dueDay = TextEditingController(text: '${existing?['due_day'] ?? ''}');
     var paidFrom = (existing?['paid_from'] as String?) ?? 'cash';
     var active = existing == null ? true : (existing['active'] as int) == 1;
@@ -89,9 +94,11 @@ class _BillsScreenState extends State<BillsScreen> {
       context: context,
       builder: (dialogContext) => StatefulBuilder(
         builder: (dialogContext, setDialog) => AlertDialog(
-          title: Text(existing == null
-              ? (isBill ? 'Add bill' : 'Add spending')
-              : 'Edit ${existing['name']}'),
+          title: Text(
+            existing == null
+                ? (isBill ? 'Add bill' : 'Add spending')
+                : 'Edit ${existing['name']}',
+          ),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -104,18 +111,22 @@ class _BillsScreenState extends State<BillsScreen> {
                 TextField(
                   controller: amount,
                   keyboardType: const TextInputType.numberWithOptions(
-                      decimal: true),
+                    decimal: true,
+                  ),
                   decoration: InputDecoration(
-                      labelText: 'Amount',
-                      prefixText: r'$',
-                      errorText: amountError),
+                    labelText: 'Amount',
+                    prefixText: r'$',
+                    errorText: amountError,
+                  ),
                 ),
                 if (isBill)
                   TextField(
                     controller: dueDay,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                        labelText: 'Due day of month', errorText: dueDayError),
+                      labelText: 'Due day of month',
+                      errorText: dueDayError,
+                    ),
                   ),
                 DropdownButtonFormField<String>(
                   initialValue: paidFrom,
@@ -145,13 +156,15 @@ class _BillsScreenState extends State<BillsScreen> {
                 final day = dueDay.text.trim().isEmpty
                     ? null
                     : int.tryParse(dueDay.text.trim());
-                final badDay = isBill &&
+                final badDay =
+                    isBill &&
                     dueDay.text.trim().isNotEmpty &&
                     (day == null || day < 1 || day > 31);
                 if (cents == null || badDay) {
                   setDialog(() {
-                    amountError =
-                        cents == null ? 'Enter an amount, like 125.00' : null;
+                    amountError = cents == null
+                        ? 'Enter an amount, like 125.00'
+                        : null;
                     dueDayError = badDay ? 'Day 1–31' : null;
                   });
                   return;
@@ -170,10 +183,11 @@ class _BillsScreenState extends State<BillsScreen> {
                 final api = ApiScope.of(screenContext);
                 Navigator.pop(dialogContext);
                 await _mutate(
-                    'Saved',
-                    () => existing == null
-                        ? api.post('/api/expenses', body)
-                        : api.put('/api/expenses/${existing['id']}', body));
+                  'Saved',
+                  () => existing == null
+                      ? api.post('/api/expenses', body)
+                      : api.put('/api/expenses/${existing['id']}', body),
+                );
               },
               child: const Text('Save'),
             ),
@@ -197,8 +211,10 @@ class _BillsScreenState extends State<BillsScreen> {
           FilledButton(
             onPressed: () {
               Navigator.pop(dialogContext);
-              _mutate('Deleted',
-                  () => ApiScope.of(context).delete('/api/expenses/$id'));
+              _mutate(
+                'Deleted',
+                () => ApiScope.of(context).delete('/api/expenses/$id'),
+              );
             },
             child: const Text('Delete'),
           ),
@@ -211,57 +227,65 @@ class _BillsScreenState extends State<BillsScreen> {
     final id = expense['id'];
     if (occ.status == 'paid') {
       _mutate(
-          'Unmarked',
-          () =>
-              ApiScope.of(context).delete('/api/bills/$id/paid/${occ.date}'));
+        'Unmarked',
+        () => ApiScope.of(context).delete('/api/bills/$id/paid/${occ.date}'),
+      );
       return;
     }
     _mutate(
-        'Marked paid',
-        () => ApiScope.of(context)
-            .post('/api/bills/$id/paid', {'due_date': occ.date}));
+      'Marked paid',
+      () =>
+          ApiScope.of(context)
+              .post('/api/bills/$id/paid', {'due_date': occ.date}),
+    );
   }
 
   @override
   Widget build(BuildContext context) => DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Bills'),
-            bottom: const TabBar(tabs: [Tab(text: 'Bills'), Tab(text: 'Spending')]),
+    length: 2,
+    child: Scaffold(
+      appBar: AppBar(
+        title: const Text('Bills'),
+        bottom: const TabBar(
+          tabs: [
+            Tab(text: 'Bills'),
+            Tab(text: 'Spending'),
+          ],
+        ),
+      ),
+      // Builder: DefaultTabController.of needs a context below it. The
+      // FAB adds to whichever tab is showing (it used to always add a
+      // bill, leaving no way to add spending).
+      floatingActionButton: Builder(
+        builder: (context) => FloatingActionButton(
+          key: const Key('add-bill'),
+          tooltip: 'Add',
+          onPressed: () => _expenseDialog(
+            kind: DefaultTabController.of(context).index == 1
+                ? 'spending'
+                : 'bill',
           ),
-          // Builder: DefaultTabController.of needs a context below it. The
-          // FAB adds to whichever tab is showing (it used to always add a
-          // bill, leaving no way to add spending).
-          floatingActionButton: Builder(
-            builder: (context) => FloatingActionButton(
-              key: const Key('add-bill'),
-              tooltip: 'Add',
-              onPressed: () => _expenseDialog(
-                  kind: DefaultTabController.of(context).index == 1
-                      ? 'spending'
-                      : 'bill'),
-              child: const Icon(Icons.add),
-            ),
-          ),
-          body: FutureBuilder<List<dynamic>>(
-            future: _future,
-            builder: (context, snap) => AsyncView<List<dynamic>>(
-              snapshot: snap,
-              onRetry: _refresh,
-              builder: (expenses) => TabBarView(children: [
-                    _list(expenses, 'bill'),
-                    _list(expenses, 'spending'),
-                  ]),
-            ),
+          child: const Icon(Icons.add),
+        ),
+      ),
+      body: FutureBuilder<List<dynamic>>(
+        future: _future,
+        builder: (context, snap) => AsyncView<List<dynamic>>(
+          snapshot: snap,
+          onRetry: _refresh,
+          builder: (expenses) => TabBarView(
+            children: [_list(expenses, 'bill'), _list(expenses, 'spending')],
           ),
         ),
-      );
+      ),
+    ),
+  );
 
   Widget _list(List<dynamic> expenses, String kind) {
     final rows = expenses.where((e) => e['kind'] == kind).toList()
-      ..sort((a, b) =>
-          (a['sort'] as int? ?? 0).compareTo(b['sort'] as int? ?? 0));
+      ..sort(
+        (a, b) => (a['sort'] as int? ?? 0).compareTo(b['sort'] as int? ?? 0),
+      );
     if (rows.isEmpty) return const Center(child: Text('Nothing here yet'));
     return Refresher(
       onRefresh: () async => _refresh(),
@@ -275,14 +299,18 @@ class _BillsScreenState extends State<BillsScreen> {
   Widget _row(Map<String, dynamic> e, String kind) {
     final occ = _occurrences[e['id'] as int];
     final paid = occ?.status == 'paid';
+    // The next occurrence's date already says which day of the month it is;
+    // repeating "Due day N" made the line wrap and orphan the number.
     final subtitle = <String>[
-      if (kind == 'bill') 'Due day ${e['due_day']}',
+      if (kind == 'bill')
+        occ != null ? 'Due ${shortDate(occ.date)}' : 'Due day ${e['due_day']}',
       'from ${e['paid_from']}',
-      if (occ != null) shortDate(occ.date),
     ].join(' · ');
     return ListTile(
       key: Key('expense-${e['id']}-$kind'),
-      leading: paid ? const Icon(Icons.check_circle, color: Colors.green) : null,
+      leading: paid
+          ? const Icon(Icons.check_circle, color: Colors.green)
+          : null,
       title: Text(e['name'] as String),
       subtitle: Text(subtitle),
       trailing: Row(

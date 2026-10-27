@@ -37,9 +37,9 @@ class _TodayScreenState extends State<TodayScreen> {
   }
 
   Future<void> _openUnlogged() async {
-    await Navigator.of(context).push(MaterialPageRoute<void>(
-      builder: (_) => const UnloggedCardPaymentsPage(),
-    ));
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const UnloggedCardPaymentsPage()),
+    );
     if (mounted) await _refresh();
   }
 
@@ -52,8 +52,8 @@ class _TodayScreenState extends State<TodayScreen> {
         onRetry: _refresh,
         builder: (home) {
           final sts = (home['safe_to_spend'] as Map).cast<String, dynamic>();
-          final reminders =
-              ((home['reminders'] as Map)['items'] as List).cast<Map>();
+          final reminders = ((home['reminders'] as Map)['items'] as List)
+              .cast<Map>();
           final upcoming = (home['upcoming'] as List).cast<Map>();
           final unloggedCount =
               (sts['unlogged_card_payment_count'] as num?)?.toInt() ?? 0;
@@ -63,18 +63,23 @@ class _TodayScreenState extends State<TodayScreen> {
               padding: const EdgeInsets.all(12),
               children: [
                 _HeroCard(
-                    sts: sts, onTap: () => _showSafeToSpend(context, sts)),
+                  sts: sts,
+                  onTap: () => _showSafeToSpend(context, sts),
+                ),
                 if (unloggedCount > 0) ...[
                   const SizedBox(height: 12),
                   FilledButton.tonal(
                     onPressed: _openUnlogged,
                     child: Text(
-                        'Log $unloggedCount card payment${unloggedCount == 1 ? '' : 's'} from your bank'),
+                      'Log $unloggedCount card payment${unloggedCount == 1 ? '' : 's'} from your bank',
+                    ),
                   ),
                 ],
                 const SizedBox(height: 12),
-                Text('Reminders',
-                    style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  'Reminders',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 const SizedBox(height: 4),
                 Card(
                   child: Column(
@@ -86,19 +91,19 @@ class _TodayScreenState extends State<TodayScreen> {
                           trailing: Text(money(r['amount_cents'] as int)),
                           tileColor:
                               (r['overdue'] as bool? ?? false) ||
-                                      r['note'] != null
-                                  ? Theme.of(context)
-                                      .colorScheme
-                                      .errorContainer
-                                      .withValues(alpha: 0.4)
-                                  : null,
+                                  r['note'] != null
+                              ? Theme.of(context).colorScheme.errorContainer
+                                    .withValues(alpha: 0.4)
+                              : null,
                         ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 12),
-                Text('Upcoming',
-                    style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  'Upcoming',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 const SizedBox(height: 4),
                 for (final g in _groupByDate(upcoming))
                   _UpcomingDay(date: g.date, rows: g.rows),
@@ -150,32 +155,31 @@ class _HeroCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-        child: InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Safe to spend',
-                    style: Theme.of(context).textTheme.titleSmall),
-                Text(
-                  money(sts['safe_to_spend_cents'] as int),
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.copyWith(
-                          color: Theme.of(context).colorScheme.primary),
-                ),
-                Text(
-                  '${money(sts['per_day_cents'] as int)}/day · ${sts['days_until']} days',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
+    child: InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Safe to spend',
+              style: Theme.of(context).textTheme.titleSmall,
             ),
-          ),
+            Text(
+              money(sts['safe_to_spend_cents'] as int),
+              style: Theme.of(context).textTheme.displaySmall
+                  ?.copyWith(color: Theme.of(context).colorScheme.primary),
+            ),
+            Text(
+              '${money(sts['per_day_cents'] as int)}/day · ${sts['days_until']} days',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
 
 class SafeToSpendDialog extends StatelessWidget {
@@ -185,8 +189,7 @@ class SafeToSpendDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final obligations =
-        (sts['obligations'] as List? ?? const []).cast<Map>();
+    final obligations = (sts['obligations'] as List? ?? const []).cast<Map>();
     final warnings = (sts['warnings'] as List? ?? const []).cast<Map>();
     return AlertDialog(
       title: const Text('Safe to spend'),
@@ -196,15 +199,17 @@ class SafeToSpendDialog extends StatelessWidget {
           shrinkWrap: true,
           children: [
             InfoRow(
-                title: 'Cash',
-                trailing: Text(money(sts['cash_total_cents'] as int))),
+              title: 'Cash',
+              trailing: Text(money(sts['cash_total_cents'] as int)),
+            ),
             InfoRow(
-                title: 'Pending out',
-                trailing: Text(money(sts['pending_out_cents'] as int))),
+              title: 'Pending out',
+              trailing: Text(money(sts['pending_out_cents'] as int)),
+            ),
             InfoRow(
-                title: 'Obligations',
-                trailing:
-                    Text(money(sts['obligations_total_cents'] as int))),
+              title: 'Obligations',
+              trailing: Text(money(sts['obligations_total_cents'] as int)),
+            ),
             for (final o in obligations)
               ListTile(
                 dense: true,
@@ -217,14 +222,16 @@ class SafeToSpendDialog extends StatelessWidget {
             // Informational only (A7): planned extra is not subtracted
             // again in the waterfall above.
             InfoRow(
-                title: 'Planned extra',
-                trailing: Text(money(sts['planned_extra_cents'] as int))),
+              title: 'Planned extra',
+              trailing: Text(money(sts['planned_extra_cents'] as int)),
+            ),
             for (final w in warnings)
               Padding(
                 padding: const EdgeInsets.only(top: 4),
-                child: Text(w['message'] as String,
-                    style:
-                        TextStyle(color: Theme.of(context).colorScheme.error)),
+                child: Text(
+                  w['message'] as String,
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
               ),
           ],
         ),
@@ -247,45 +254,46 @@ class _UpcomingDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 4),
-          Text(shortDate(date),
-              style: Theme.of(context).textTheme.titleSmall),
-          Card(
-            child: Column(
-              children: [
-                for (final r in rows)
-                  ListTile(
-                    leading: _StatusChip(status: r['status'] as String),
-                    title: Text(r['name'] as String),
-                    trailing: r['kind'] == 'card'
-                        ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                  'Min ${money(r['min_remaining_cents'] as int)}',
-                                  style:
-                                      Theme.of(context).textTheme.bodySmall),
-                              Text(
-                                  'Extra ${money(r['extra_remaining_cents'] as int)}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary)),
-                            ],
-                          )
-                        : Text(money(r['amount_cents'] as int)),
-                  ),
-              ],
-            ),
-          ),
-        ],
-      );
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const SizedBox(height: 4),
+      Text(shortDate(date), style: Theme.of(context).textTheme.titleSmall),
+      Card(
+        child: Column(
+          children: [
+            for (final r in rows)
+              ListTile(
+                leading: _StatusChip(status: r['status'] as String),
+                title: Text(r['name'] as String),
+                trailing: r['kind'] == 'card'
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Min ${money(r['min_remaining_cents'] as int)}',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          // Like the web app: no "+$0.00 extra" noise.
+                          if (((r['extra_remaining_cents'] as num?) ?? 0) > 0)
+                            Text(
+                              'Extra ${money(r['extra_remaining_cents'] as int)}',
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                  ),
+                            ),
+                        ],
+                      )
+                    : Text(money(r['amount_cents'] as int)),
+              ),
+          ],
+        ),
+      ),
+    ],
+  );
 }
 
 class _StatusChip extends StatelessWidget {
@@ -302,9 +310,14 @@ class _StatusChip extends StatelessWidget {
         color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(999),
       ),
-      child: Text(status,
-          style: TextStyle(
-              fontSize: 11, color: color, fontWeight: FontWeight.w600)),
+      child: Text(
+        status,
+        style: TextStyle(
+          fontSize: 11,
+          color: color,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }
@@ -407,8 +420,10 @@ class _UnloggedCardPaymentsPageState extends State<UnloggedCardPaymentsPage> {
             borderRadius: BorderRadius.circular(8),
             child: Padding(
               padding: const EdgeInsets.all(12),
-              child: Text(_error!,
-                  style: TextStyle(color: scheme.onErrorContainer)),
+              child: Text(
+                _error!,
+                style: TextStyle(color: scheme.onErrorContainer),
+              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -435,7 +450,8 @@ class _UnloggedCardPaymentsPageState extends State<UnloggedCardPaymentsPage> {
                               ? null
                               : () => _act(
                                   '/api/card-payments/${r['transaction_id']}/log',
-                                  'Payment logged'),
+                                  'Payment logged',
+                                ),
                           child: const Text('Log'),
                         ),
                       ),
@@ -446,7 +462,8 @@ class _UnloggedCardPaymentsPageState extends State<UnloggedCardPaymentsPage> {
                               ? null
                               : () => _act(
                                   '/api/card-payments/${r['transaction_id']}/dismiss',
-                                  'Dismissed'),
+                                  'Dismissed',
+                                ),
                           child: const Text('Dismiss'),
                         ),
                       ),
@@ -461,7 +478,10 @@ class _UnloggedCardPaymentsPageState extends State<UnloggedCardPaymentsPage> {
           FilledButton(
             onPressed: _busy
                 ? null
-                : () => _act('/api/card-payments/log-all', 'Card payments logged'),
+                : () => _act(
+                    '/api/card-payments/log-all',
+                    'Card payments logged',
+                  ),
             child: const Text('Log all'),
           ),
         if (rows.isEmpty) const Center(child: Text('Nothing to log')),

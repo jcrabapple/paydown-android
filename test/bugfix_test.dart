@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -410,5 +411,45 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('Enter your server address'), findsOneWidget);
     expect(succeeded, isFalse);
+  });
+
+  testWidgets('bill subtitle shows the next due date once, not "Due day N"',
+      (tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1200, 10000);
+    addTearDown(tester.view.reset);
+    final client = FakeApiClient({
+      '/api/expenses': [
+        {'id': 1, 'name': 'Rent', 'amount_cents': 165000, 'kind': 'bill',
+         'due_day': 1, 'paid_from': 'cash', 'active': 1, 'sort': 0},
+      ],
+      '/api/upcoming?days=31': [
+        {'date': '2026-11-01', 'kind': 'bill', 'id': 1, 'name': 'Rent',
+         'amount_cents': 165000, 'status': 'due'},
+      ],
+    });
+    await tester.pumpWidget(MaterialApp(
+        home: ApiScope(client: client, child: const BillsScreen())));
+    await tester.pumpAndSettle();
+    expect(find.text('Due Nov 1 · from cash'), findsOneWidget);
+    expect(find.textContaining('Due day'), findsNothing);
+  });
+
+  testWidgets('Today hides a zero planned extra on card rows', (tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1200, 10000);
+    addTearDown(tester.view.reset);
+    final home = jsonDecode(File('docs/fixtures/mobile_home.json')
+        .readAsStringSync()) as Map<String, dynamic>;
+    for (final u in (home['upcoming'] as List).cast<Map>()) {
+      if (u['kind'] == 'card') u['extra_remaining_cents'] = 0;
+    }
+    await tester.pumpWidget(MaterialApp(
+        home: ApiScope(
+            client: FakeApiClient({'/api/mobile/home': home}),
+            child: const Scaffold(body: TodayScreen()))));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Min '), findsWidgets);
+    expect(find.textContaining('Extra '), findsNothing);
   });
 }

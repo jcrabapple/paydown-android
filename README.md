@@ -4,6 +4,20 @@ A native Android client for [Paydown](https://github.com/jcrabapple/paydown), th
 
 The app is a client only. It needs a running Paydown server (yours), and talks to it over the same JSON API the web app uses, with the same HTTP Basic credentials.
 
+<p align="center">
+  <img src="docs/screenshots/today.png" width="200" alt="Today: Safe-to-Spend, reminders and upcoming bills">
+  <img src="docs/screenshots/plan.png" width="200" alt="Plan: this month's per-card payments">
+  <img src="docs/screenshots/plan-strategy.png" width="200" alt="Plan: payoff date, interest saved and schedule">
+  <img src="docs/screenshots/today-dark.png" width="200" alt="Today in dark mode">
+</p>
+<p align="center">
+  <img src="docs/screenshots/accounts.png" width="200" alt="Accounts: cards with APR, minimum and utilization">
+  <img src="docs/screenshots/bills.png" width="200" alt="Bills with next due dates">
+  <img src="docs/screenshots/subscriptions.png" width="200" alt="Subscriptions with monthly and yearly totals">
+  <img src="docs/screenshots/goals.png" width="200" alt="Sinking-fund goals">
+</p>
+<p align="center"><sub>Screenshots use the fictional demo household from the server repo's <code>scripts/seed_demo.py</code>.</sub></p>
+
 ## Features
 
 Full parity with the web app's day-to-day flows:
@@ -61,6 +75,7 @@ flutter analyze
 flutter test
 ```
 
+- To try the app without real data, seed the server's demo household (`uv run python scripts/seed_demo.py data/demo.db` in the server repo) and point a debug build at it. Debug and profile builds allow plain `http` (e.g. `http://10.0.2.2:8485` from the emulator); release builds require https.
 - Screens are tested against **real (scrubbed) server responses** in `docs/fixtures/`.
 - Every request the test suite sends is validated against the server's OpenAPI schema (`docs/openapi.json`, enforced by `test/contract.dart`): a wrong route, a missing required field, an unknown field, or a wrong JSON type fails the test that sent it. Regenerate the schema whenever the server's models change (command in `docs/ANDROID1.md`, "Contract schema").
 - Design decisions and per-screen endpoint contracts: `docs/ANDROID1.md`. Server-side mobile contract: the server repo's `docs/API1.md`.
