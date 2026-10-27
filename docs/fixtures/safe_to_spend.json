@@ -1,0 +1,71 @@
+{
+  "today": "2026-10-27",
+  "horizon": "2026-10-31",
+  "days_until": 15,
+  "payday": null,
+  "period_start": "2026-10-27",
+  "cash_total_cents": 1234500,
+  "pending_out_cents": 1234500,
+  "cash_as_of": "2026-10-27T10:35:16Z",
+  "obligations": [
+    {
+      "kind": "bill",
+      "id": 1,
+      "name": "Movie Pass",
+      "date": "2026-10-31",
+      "amount_cents": 1234500,
+      "status": "spread",
+      "reserved": true,
+      "undated": true
+    },
+    {
+      "kind": "bill",
+      "id": 2,
+      "name": "Streaming Service",
+      "date": "2026-10-31",
+      "amount_cents": 1234500,
+      "status": "spread",
+      "reserved": true,
+      "undated": true
+    }
+  ],
+  "obligations_total_cents": 1234500,
+  "planned_extra_cents": 1234500,
+  "goals_set_aside_cents": 1234500,
+  "cash_floor_cents": 1234500,
+  "safe_to_spend_cents": 1234500,
+  "per_day_cents": 1234500,
+  "planned_spending_cents": 1234500,
+  "warnings": [
+    {
+      "code": "no_pay_schedule",
+      "message": "Add your pay schedule for a more accurate number"
+    },
+    {
+      "code": "unlabelled_income",
+      "message": "16 deposits in the last 30 days need review"
+    },
+    {
+      "code": "undated_bills",
+      "message": "2 bills without a due date"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Main Checking",
+      "balance_cents": 1234500,
+      "sync": "plaid",
+      "last_synced_at": "2026-10-27T10:35:13Z"
+    },
+    {
+      "id": 2,
+      "name": "Spending Account",
+      "balance_cents": 1234500,
+      "sync": "plaid",
+      "last_synced_at": "2026-10-27T10:35:16Z"
+    }
+  ],
+  "unlabelled_income_count": 2,
+  "unlogged_card_payment_count": 2
+}

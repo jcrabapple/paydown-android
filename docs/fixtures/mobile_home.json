@@ -1,0 +1,839 @@
+{
+  "month": "2026-10",
+  "today": "2026-10-27",
+  "budget": {
+    "month": "2026-10",
+    "income_total_cents": 1234500,
+    "bills_total_cents": 1234500,
+    "spending_total_cents": 1234500,
+    "adjust_out_cents": 1234500,
+    "minimums_total_cents": 1234500,
+    "goals_cents": 1234500,
+    "subscriptions_total_cents": 1234500,
+    "essentials_cents": 1234500,
+    "available_after_min_cents": 1234500,
+    "buffer_cents": 1234500,
+    "surplus_cents": 1234500,
+    "debt_share_pct": 50,
+    "suggested_extra_cents": 1234500,
+    "extra_override_cents": null,
+    "extra_cents": 1234500,
+    "cash_applied_cents": 1234500,
+    "debt_budget_cents": 1234500,
+    "recurring_debt_budget_cents": 1234500,
+    "shortfall_cents": 1234500,
+    "leftover_cents": 1234500
+  },
+  "settings": {
+    "id": 1,
+    "strategy": "avalanche",
+    "buffer_cents": 1234500,
+    "debt_share_pct": 50,
+    "extra_override_cents": null,
+    "cash_floor_cents": 1234500,
+    "cash_reserve_months": 6,
+    "auto_log_card_payments": 1
+  },
+  "plan": [
+    {
+      "card_id": 1,
+      "name": "Card A",
+      "minimum_cents": 1234500,
+      "extra_cents": 1234500,
+      "recommended_cents": 1234500,
+      "paid_cents": 1234500,
+      "remaining_cents": 1234500,
+      "min_remaining_cents": 1234500,
+      "due_day": 15,
+      "next_due_date": "2026-11-02",
+      "bank_overdue": false,
+      "sync": "plaid"
+    },
+    {
+      "card_id": 3,
+      "name": "Card C",
+      "minimum_cents": 1234500,
+      "extra_cents": 1234500,
+      "recommended_cents": 1234500,
+      "paid_cents": 1234500,
+      "remaining_cents": 1234500,
+      "min_remaining_cents": 1234500,
+      "due_day": 15,
+      "next_due_date": "2026-11-06",
+      "bank_overdue": false,
+      "sync": "plaid"
+    },
+    {
+      "card_id": 2,
+      "name": "Card B",
+      "minimum_cents": 1234500,
+      "extra_cents": 1234500,
+      "recommended_cents": 1234500,
+      "paid_cents": 1234500,
+      "remaining_cents": 1234500,
+      "min_remaining_cents": 1234500,
+      "due_day": 15,
+      "next_due_date": "2026-11-14",
+      "bank_overdue": false,
+      "sync": "plaid"
+    }
+  ],
+  "paid_total_cents": 1234500,
+  "recommended_total_cents": 1234500,
+  "projection": {
+    "avalanche": {
+      "months": 6,
+      "debt_free_month": "2027-04",
+      "total_interest_cents": 1234500,
+      "total_paid_cents": 1234500,
+      "underfunded": false,
+      "cards": [
+        {
+          "id": 1,
+          "name": "Card A",
+          "payoff_month": "2026-10",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 2,
+          "name": "Card B",
+          "payoff_month": "2027-02",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 3,
+          "name": "Card C",
+          "payoff_month": "2026-12",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        }
+      ],
+      "schedule": [
+        {
+          "month": "2026-10",
+          "payments": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 392
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-11",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 368
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-12",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 344
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 0,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        }
+      ]
+    },
+    "snowball": {
+      "months": 6,
+      "debt_free_month": "2027-04",
+      "total_interest_cents": 1234500,
+      "total_paid_cents": 1234500,
+      "underfunded": false,
+      "cards": [
+        {
+          "id": 1,
+          "name": "Card A",
+          "payoff_month": "2026-10",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 2,
+          "name": "Card B",
+          "payoff_month": "2027-04",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 3,
+          "name": "Card C",
+          "payoff_month": "2027-02",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        }
+      ],
+      "schedule": [
+        {
+          "month": "2026-10",
+          "payments": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 392
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 0
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-11",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 0
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 0
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 0
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-12",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 0
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 0
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 0,
+            "5": 0,
+            "6": 0
+          },
+          "total_balance_cents": 1234500
+        }
+      ]
+    },
+    "custom": {
+      "months": 6,
+      "debt_free_month": "2027-04",
+      "total_interest_cents": 1234500,
+      "total_paid_cents": 1234500,
+      "underfunded": false,
+      "cards": [
+        {
+          "id": 1,
+          "name": "Card A",
+          "payoff_month": "2026-10",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 2,
+          "name": "Card B",
+          "payoff_month": "2027-01",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 3,
+          "name": "Card C",
+          "payoff_month": "2027-02",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        }
+      ],
+      "schedule": [
+        {
+          "month": "2026-10",
+          "payments": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 392
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-11",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 368
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-12",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 344
+          },
+          "balances": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        }
+      ]
+    },
+    "minimums_only": {
+      "months": null,
+      "debt_free_month": null,
+      "total_interest_cents": 1234500,
+      "total_paid_cents": 1234500,
+      "underfunded": false,
+      "cards": [
+        {
+          "id": 1,
+          "name": "Card A",
+          "payoff_month": "2044-08",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        },
+        {
+          "id": 2,
+          "name": "Card B",
+          "payoff_month": null,
+          "months_to_payoff": null,
+          "interest_cents": 1234500,
+          "never": true
+        },
+        {
+          "id": 3,
+          "name": "Card C",
+          "payoff_month": "2035-12",
+          "months_to_payoff": 6,
+          "interest_cents": 1234500,
+          "never": false
+        }
+      ],
+      "schedule": [
+        {
+          "month": "2026-10",
+          "payments": {
+            "1": 0,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 0,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 392
+          },
+          "balances": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-11",
+          "payments": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 368
+          },
+          "balances": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        },
+        {
+          "month": "2026-12",
+          "payments": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "interest": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 344
+          },
+          "balances": {
+            "1": 42,
+            "2": 42,
+            "3": 42,
+            "4": 42,
+            "5": 42,
+            "6": 42
+          },
+          "total_balance_cents": 1234500
+        }
+      ]
+    },
+    "strategy": "avalanche",
+    "interest_saved_cents": null,
+    "months_saved": null,
+    "minimums_only_never": true
+  },
+  "cash": {
+    "cash_total_cents": 1234500,
+    "cash_floor_cents": 1234500,
+    "reserve_months": 6,
+    "essentials_cents": 1234500,
+    "extra_remaining_cents": 1234500,
+    "goals_set_aside_cents": 1234500,
+    "reserve_cents": 1234500,
+    "spare_cents": 1234500,
+    "months_covered": 6,
+    "is_current_month": true,
+    "accounts": [
+      {
+        "id": 1,
+        "name": "Main Checking",
+        "kind": "checking",
+        "balance_cents": 1234500,
+        "include_in_cash": true,
+        "sync": "plaid",
+        "last_synced_at": "2026-10-27T10:35:13Z",
+        "institution_name": "Second Bank",
+        "mask": "0006"
+      },
+      {
+        "id": 2,
+        "name": "Card C CC",
+        "kind": "savings",
+        "balance_cents": 1234500,
+        "include_in_cash": false,
+        "sync": "plaid",
+        "last_synced_at": "2026-10-27T10:35:16Z",
+        "institution_name": "Fourth Bank",
+        "mask": "0002"
+      },
+      {
+        "id": 3,
+        "name": "Card A CC",
+        "kind": "savings",
+        "balance_cents": 1234500,
+        "include_in_cash": false,
+        "sync": "plaid",
+        "last_synced_at": "2026-10-27T10:35:16Z",
+        "institution_name": "Fourth Bank",
+        "mask": "0003"
+      }
+    ],
+    "applied_cents": 1234500
+  },
+  "cards": [
+    {
+      "id": 1,
+      "name": "Card A",
+      "balance_cents": 1234500,
+      "apr": 24.99,
+      "min_payment_cents": 1234500,
+      "credit_limit_cents": 1234500,
+      "due_day": 15,
+      "priority": 0,
+      "starting_balance_cents": 1234500,
+      "closed": 0,
+      "created_at": "2026-10-02",
+      "sync": "plaid",
+      "last_synced_at": "2026-10-27T10:35:11Z",
+      "apr_source": "bank",
+      "apr_override": null,
+      "min_override_cents": null,
+      "next_due_date": "2026-11-02",
+      "bank_overdue": 0,
+      "statement_balance_cents": 1234500,
+      "bank_apr": 24.99,
+      "bank_min_payment_cents": 1234500,
+      "apr_effective_source": "bank",
+      "min_source": "bank",
+      "apr_inferred": 24.99,
+      "utilization_pct": 50,
+      "progress_pct": 50,
+      "institution_name": "Example Bank",
+      "mask": "0005"
+    },
+    {
+      "id": 2,
+      "name": "Card B",
+      "balance_cents": 1234500,
+      "apr": 24.99,
+      "min_payment_cents": 1234500,
+      "credit_limit_cents": null,
+      "due_day": 15,
+      "priority": 0,
+      "starting_balance_cents": 1234500,
+      "closed": 0,
+      "created_at": "2026-10-02",
+      "sync": "plaid",
+      "last_synced_at": "2026-10-27T10:35:13Z",
+      "apr_source": "unknown",
+      "apr_override": null,
+      "min_override_cents": null,
+      "next_due_date": "2026-11-14",
+      "bank_overdue": 0,
+      "statement_balance_cents": 1234500,
+      "bank_apr": 24.99,
+      "bank_min_payment_cents": 1234500,
+      "apr_effective_source": "inferred",
+      "min_source": "bank",
+      "apr_inferred": 24.99,
+      "utilization_pct": null,
+      "progress_pct": 50,
+      "institution_name": "Second Bank",
+      "mask": "0007"
+    },
+    {
+      "id": 3,
+      "name": "Card C",
+      "balance_cents": 1234500,
+      "apr": 24.99,
+      "min_payment_cents": 1234500,
+      "credit_limit_cents": null,
+      "due_day": 15,
+      "priority": 0,
+      "starting_balance_cents": 1234500,
+      "closed": 0,
+      "created_at": "2026-10-02",
+      "sync": "plaid",
+      "last_synced_at": "2026-10-27T10:35:13Z",
+      "apr_source": "unknown",
+      "apr_override": null,
+      "min_override_cents": null,
+      "next_due_date": "2026-11-06",
+      "bank_overdue": 0,
+      "statement_balance_cents": 1234500,
+      "bank_apr": 24.99,
+      "bank_min_payment_cents": 1234500,
+      "apr_effective_source": "inferred",
+      "min_source": "bank",
+      "apr_inferred": 24.99,
+      "utilization_pct": null,
+      "progress_pct": 50,
+      "institution_name": "Second Bank",
+      "mask": "0004"
+    }
+  ],
+  "safe_to_spend": {
+    "today": "2026-10-27",
+    "horizon": "2026-10-31",
+    "days_until": 15,
+    "payday": null,
+    "period_start": "2026-10-27",
+    "cash_total_cents": 1234500,
+    "pending_out_cents": 1234500,
+    "cash_as_of": "2026-10-27T10:35:16Z",
+    "obligations": [
+      {
+        "kind": "bill",
+        "id": 1,
+        "name": "Movie Pass",
+        "date": "2026-10-31",
+        "amount_cents": 1234500,
+        "status": "spread",
+        "reserved": true,
+        "undated": true
+      },
+      {
+        "kind": "bill",
+        "id": 2,
+        "name": "Streaming Service",
+        "date": "2026-10-31",
+        "amount_cents": 1234500,
+        "status": "spread",
+        "reserved": true,
+        "undated": true
+      }
+    ],
+    "obligations_total_cents": 1234500,
+    "planned_extra_cents": 1234500,
+    "goals_set_aside_cents": 1234500,
+    "cash_floor_cents": 1234500,
+    "safe_to_spend_cents": 1234500,
+    "per_day_cents": 1234500,
+    "planned_spending_cents": 1234500,
+    "warnings": [
+      {
+        "code": "no_pay_schedule",
+        "message": "Add your pay schedule for a more accurate number"
+      },
+      {
+        "code": "unlabelled_income",
+        "message": "16 deposits in the last 30 days need review"
+      },
+      {
+        "code": "undated_bills",
+        "message": "2 bills without a due date"
+      }
+    ],
+    "accounts": [
+      {
+        "id": 1,
+        "name": "Main Checking",
+        "balance_cents": 1234500,
+        "sync": "plaid",
+        "last_synced_at": "2026-10-27T10:35:13Z"
+      },
+      {
+        "id": 2,
+        "name": "Spending Account",
+        "balance_cents": 1234500,
+        "sync": "plaid",
+        "last_synced_at": "2026-10-27T10:35:16Z"
+      }
+    ],
+    "unlabelled_income_count": 2,
+    "unlogged_card_payment_count": 2
+  },
+  "upcoming": [
+    {
+      "date": "2026-11-01",
+      "kind": "bill",
+      "id": 1,
+      "name": "Mortgage",
+      "amount_cents": 1234500,
+      "status": "due"
+    },
+    {
+      "date": "2026-11-01",
+      "kind": "bill",
+      "id": 2,
+      "name": "Internet",
+      "amount_cents": 1234500,
+      "status": "due"
+    },
+    {
+      "date": "2026-11-02",
+      "kind": "card",
+      "id": 3,
+      "name": "Card A",
+      "amount_cents": 1234500,
+      "min_remaining_cents": 1234500,
+      "extra_remaining_cents": 1234500,
+      "status": "due"
+    }
+  ],
+  "reminders": {
+    "today": "2026-10-27",
+    "items": [
+      {
+        "kind": "bill",
+        "id": 1,
+        "name": "Mortgage",
+        "date": "2026-11-01",
+        "days_until": 15,
+        "amount_cents": 1234500,
+        "overdue": false,
+        "note": null
+      },
+      {
+        "kind": "bill",
+        "id": 2,
+        "name": "Internet",
+        "date": "2026-11-01",
+        "days_until": 15,
+        "amount_cents": 1234500,
+        "overdue": false,
+        "note": null
+      },
+      {
+        "kind": "card",
+        "id": 3,
+        "name": "Card C",
+        "date": "2026-11-06",
+        "days_until": 15,
+        "amount_cents": 1234500,
+        "overdue": false,
+        "note": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "Cloud Hosting",
+    "amount_cents": 1234500,
+    "active": 1,
+    "sort": 0,
+    "pay_schedule_id": null
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "date": "2026-11-01",
+    "kind": "bill",
+    "id": 1,
+    "name": "Mortgage",
+    "amount_cents": 1234500,
+    "status": "due"
+  },
+  {
+    "date": "2026-11-01",
+    "kind": "bill",
+    "id": 2,
+    "name": "Internet",
+    "amount_cents": 1234500,
+    "status": "due"
+  },
+  {
+    "date": "2026-11-02",
+    "kind": "card",
+    "id": 3,
+    "name": "Card A",
+    "amount_cents": 1234500,
+    "min_remaining_cents": 1234500,
+    "extra_remaining_cents": 1234500,
+    "status": "due"
+  }
+]

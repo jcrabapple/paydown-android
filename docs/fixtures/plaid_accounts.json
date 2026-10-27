@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "plaid_item_id": 1,
+    "institution_name": "Example Bank",
+    "name": "Savings",
+    "official_name": "Example Savings",
+    "mask": "0001",
+    "type": "depository",
+    "subtype": "savings",
+    "card_id": null,
+    "card_name": null,
+    "cash_account_id": null,
+    "cash_account_name": null,
+    "ignored": false,
+    "last_balance_cents": 1234500,
+    "apr_source": "manual"
+  },
+  {
+    "id": 2,
+    "plaid_item_id": 1,
+    "institution_name": "Example Bank",
+    "name": "Card A **0005",
+    "official_name": "Card A",
+    "mask": "0005",
+    "type": "credit",
+    "subtype": "credit card",
+    "card_id": 1,
+    "card_name": "Card A",
+    "cash_account_id": null,
+    "cash_account_name": null,
+    "ignored": false,
+    "last_balance_cents": 1234500,
+    "apr_source": "purchase"
+  },
+  {
+    "id": 3,
+    "plaid_item_id": 1,
+    "institution_name": "Example Bank",
+    "name": "Checking",
+    "official_name": "Example Checking",
+    "mask": "0008",
+    "type": "depository",
+    "subtype": "checking",
+    "card_id": null,
+    "card_name": null,
+    "cash_account_id": null,
+    "cash_account_name": null,
+    "ignored": false,
+    "last_balance_cents": 1234500,
+    "apr_source": "manual"
+  }
+]

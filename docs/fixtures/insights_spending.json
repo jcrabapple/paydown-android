@@ -1,0 +1,32 @@
+{
+  "months_used": [
+    "2026-08",
+    "2026-09"
+  ],
+  "categories": [
+    {
+      "category": "GENERAL_MERCHANDISE",
+      "label": "Shopping",
+      "monthly_avg_cents": 1234500,
+      "suggest": true,
+      "note": null
+    },
+    {
+      "category": "GENERAL_SERVICES",
+      "label": "Services",
+      "monthly_avg_cents": 1234500,
+      "suggest": true,
+      "note": null
+    },
+    {
+      "category": "FOOD_AND_DRINK",
+      "label": "Food & drink",
+      "monthly_avg_cents": 1234500,
+      "suggest": true,
+      "note": null
+    }
+  ],
+  "total_monthly_avg_cents": 1234500,
+  "budget_spending_cents": 1234500,
+  "gap_cents": 1234500
+}

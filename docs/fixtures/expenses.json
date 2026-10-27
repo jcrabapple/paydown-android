@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Mortgage",
+    "amount_cents": 1234500,
+    "kind": "bill",
+    "due_day": 15,
+    "active": 1,
+    "sort": 0,
+    "paid_from": "cash",
+    "match_text": null
+  },
+  {
+    "id": 2,
+    "name": "Car payment",
+    "amount_cents": 1234500,
+    "kind": "bill",
+    "due_day": 15,
+    "active": 1,
+    "sort": 0,
+    "paid_from": "cash",
+    "match_text": null
+  },
+  {
+    "id": 3,
+    "name": "Utilities",
+    "amount_cents": 1234500,
+    "kind": "bill",
+    "due_day": 15,
+    "active": 1,
+    "sort": 0,
+    "paid_from": "cash",
+    "match_text": null
+  }
+]

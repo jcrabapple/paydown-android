@@ -1,0 +1,30 @@
+{
+  "configured": true,
+  "env": "production",
+  "items": [
+    {
+      "id": 1,
+      "institution_name": "Example Bank",
+      "status": "ok",
+      "error_code": null,
+      "last_synced_at": "2026-10-27T10:35:12Z",
+      "accounts": 2
+    },
+    {
+      "id": 2,
+      "institution_name": "Second Bank",
+      "status": "ok",
+      "error_code": null,
+      "last_synced_at": "2026-10-27T10:35:13Z",
+      "accounts": 2
+    },
+    {
+      "id": 3,
+      "institution_name": "Third Bank",
+      "status": "ok",
+      "error_code": null,
+      "last_synced_at": "2026-10-27T10:35:14Z",
+      "accounts": 2
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Main Checking",
+    "kind": "checking",
+    "balance_cents": 1234500,
+    "include_in_cash": true,
+    "sync": "plaid",
+    "last_synced_at": "2026-10-27T10:35:13Z",
+    "institution_name": "Second Bank",
+    "mask": "0006"
+  },
+  {
+    "id": 2,
+    "name": "Card C CC",
+    "kind": "savings",
+    "balance_cents": 1234500,
+    "include_in_cash": false,
+    "sync": "plaid",
+    "last_synced_at": "2026-10-27T10:35:16Z",
+    "institution_name": "Fourth Bank",
+    "mask": "0002"
+  },
+  {
+    "id": 3,
+    "name": "Card A CC",
+    "kind": "savings",
+    "balance_cents": 1234500,
+    "include_in_cash": false,
+    "sync": "plaid",
+    "last_synced_at": "2026-10-27T10:35:16Z",
+    "institution_name": "Fourth Bank",
+    "mask": "0003"
+  }
+]

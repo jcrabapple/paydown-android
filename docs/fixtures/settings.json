@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "strategy": "avalanche",
+  "buffer_cents": 1234500,
+  "debt_share_pct": 50,
+  "extra_override_cents": null,
+  "cash_floor_cents": 1234500,
+  "cash_reserve_months": 6,
+  "auto_log_card_payments": true
+}

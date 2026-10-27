@@ -1,0 +1,59 @@
+{
+  "coverage_start": "2026-07-05",
+  "months": [
+    {
+      "month": "2026-05",
+      "partial": false,
+      "charges_cents": 1234500,
+      "payments_cents": 1234500,
+      "refunds_cents": 1234500,
+      "interest_cents": 1234500,
+      "fees_cents": 1234500,
+      "net_change_cents": 1234500
+    },
+    {
+      "month": "2026-06",
+      "partial": false,
+      "charges_cents": 1234500,
+      "payments_cents": 1234500,
+      "refunds_cents": 1234500,
+      "interest_cents": 1234500,
+      "fees_cents": 1234500,
+      "net_change_cents": 1234500
+    },
+    {
+      "month": "2026-07",
+      "partial": true,
+      "charges_cents": 1234500,
+      "payments_cents": 1234500,
+      "refunds_cents": 1234500,
+      "interest_cents": 1234500,
+      "fees_cents": 1234500,
+      "net_change_cents": 1234500
+    }
+  ],
+  "interest_last_30_cents": 1234500,
+  "by_card": [
+    {
+      "card_id": 1,
+      "name": "Card A",
+      "interest_last_30_cents": 1234500,
+      "fees_last_90_cents": 1234500,
+      "late_fees_last_90_cents": 1234500
+    },
+    {
+      "card_id": 2,
+      "name": "Card B",
+      "interest_last_30_cents": 1234500,
+      "fees_last_90_cents": 1234500,
+      "late_fees_last_90_cents": 1234500
+    },
+    {
+      "card_id": 3,
+      "name": "Card C",
+      "interest_last_30_cents": 1234500,
+      "fees_last_90_cents": 1234500,
+      "late_fees_last_90_cents": 1234500
+    }
+  ]
+}

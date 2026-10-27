@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "card_id": 1,
+    "month": "2026-10",
+    "paid_on": "2026-10-12",
+    "amount_cents": 1234500,
+    "note": "From your bank",
+    "created_at": "2026-10-14T19:38:24Z",
+    "transaction_id": "txn-0001"
+  },
+  {
+    "id": 2,
+    "card_id": 2,
+    "month": "2026-10",
+    "paid_on": "2026-10-12",
+    "amount_cents": 1234500,
+    "note": "From your bank",
+    "created_at": "2026-10-14T19:38:24Z",
+    "transaction_id": "txn-0002"
+  },
+  {
+    "id": 3,
+    "card_id": 1,
+    "month": "2026-10",
+    "paid_on": "2026-10-10",
+    "amount_cents": 1234500,
+    "note": "From your bank",
+    "created_at": "2026-10-14T19:38:24Z",
+    "transaction_id": "txn-0003"
+  }
+]

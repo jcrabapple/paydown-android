@@ -1,0 +1,3869 @@
+{
+ "components": {
+  "schemas": {
+   "AdjustmentIn": {
+    "properties": {
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "month": {
+      "title": "Month",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     }
+    },
+    "required": [
+     "month",
+     "name",
+     "amount_cents"
+    ],
+    "title": "AdjustmentIn",
+    "type": "object"
+   },
+   "BillPaidIn": {
+    "properties": {
+     "due_date": {
+      "title": "Due Date",
+      "type": "string"
+     }
+    },
+    "required": [
+     "due_date"
+    ],
+    "title": "BillPaidIn",
+    "type": "object"
+   },
+   "BulkLabelsIn": {
+    "properties": {
+     "label": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Label"
+     },
+     "pay_schedule_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pay Schedule Id"
+     },
+     "transaction_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Transaction Ids",
+      "type": "array"
+     }
+    },
+    "required": [
+     "transaction_ids"
+    ],
+    "title": "BulkLabelsIn",
+    "type": "object"
+   },
+   "CardIn": {
+    "properties": {
+     "apr": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Apr"
+     },
+     "apr_override": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Apr Override"
+     },
+     "balance_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Balance Cents"
+     },
+     "closed": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Closed"
+     },
+     "credit_limit_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Credit Limit Cents"
+     },
+     "due_day": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Due Day"
+     },
+     "min_override_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Override Cents"
+     },
+     "min_payment_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Min Payment Cents"
+     },
+     "name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Name"
+     },
+     "priority": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Priority"
+     }
+    },
+    "title": "CardIn",
+    "type": "object"
+   },
+   "CashAccountIn": {
+    "properties": {
+     "balance_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Balance Cents"
+     },
+     "include_in_cash": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Include In Cash"
+     },
+     "kind": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Kind"
+     },
+     "name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Name"
+     },
+     "sort": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Sort"
+     }
+    },
+    "title": "CashAccountIn",
+    "type": "object"
+   },
+   "ExpenseIn": {
+    "properties": {
+     "active": {
+      "default": true,
+      "title": "Active",
+      "type": "boolean"
+     },
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "due_day": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Due Day"
+     },
+     "kind": {
+      "default": "bill",
+      "title": "Kind",
+      "type": "string"
+     },
+     "match_text": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Match Text"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "paid_from": {
+      "default": "cash",
+      "title": "Paid From",
+      "type": "string"
+     },
+     "sort": {
+      "default": 0,
+      "title": "Sort",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "name",
+     "amount_cents"
+    ],
+    "title": "ExpenseIn",
+    "type": "object"
+   },
+   "GoalIn": {
+    "properties": {
+     "active": {
+      "default": true,
+      "title": "Active",
+      "type": "boolean"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "sort": {
+      "default": 0,
+      "title": "Sort",
+      "type": "integer"
+     },
+     "target_cents": {
+      "title": "Target Cents",
+      "type": "integer"
+     },
+     "target_date": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Target Date"
+     }
+    },
+    "required": [
+     "name",
+     "target_cents"
+    ],
+    "title": "GoalIn",
+    "type": "object"
+   },
+   "GoalMoveIn": {
+    "properties": {
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "note": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Note"
+     }
+    },
+    "required": [
+     "amount_cents"
+    ],
+    "title": "GoalMoveIn",
+    "type": "object"
+   },
+   "GoalPatch": {
+    "properties": {
+     "active": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Active"
+     },
+     "name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Name"
+     },
+     "sort": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Sort"
+     },
+     "target_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Target Cents"
+     },
+     "target_date": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Target Date"
+     }
+    },
+    "title": "GoalPatch",
+    "type": "object"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "title": "Detail",
+      "type": "array"
+     }
+    },
+    "title": "HTTPValidationError",
+    "type": "object"
+   },
+   "IncomeIn": {
+    "properties": {
+     "active": {
+      "default": true,
+      "title": "Active",
+      "type": "boolean"
+     },
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "sort": {
+      "default": 0,
+      "title": "Sort",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "name",
+     "amount_cents"
+    ],
+    "title": "IncomeIn",
+    "type": "object"
+   },
+   "LabelIn": {
+    "properties": {
+     "create_rule": {
+      "default": false,
+      "title": "Create Rule",
+      "type": "boolean"
+     },
+     "label": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Label"
+     },
+     "pay_schedule_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pay Schedule Id"
+     },
+     "rule_text": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rule Text"
+     }
+    },
+    "title": "LabelIn",
+    "type": "object"
+   },
+   "PayScheduleDetectIn": {
+    "properties": {
+     "transaction_ids": {
+      "anyOf": [
+       {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Transaction Ids"
+     }
+    },
+    "title": "PayScheduleDetectIn",
+    "type": "object"
+   },
+   "PayScheduleIn": {
+    "properties": {
+     "active": {
+      "default": true,
+      "title": "Active",
+      "type": "boolean"
+     },
+     "amount_cents": {
+      "default": 0,
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "anchor_date": {
+      "title": "Anchor Date",
+      "type": "string"
+     },
+     "cash_account_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cash Account Id"
+     },
+     "frequency": {
+      "title": "Frequency",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "semimonthly_day1": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semimonthly Day1"
+     },
+     "semimonthly_day2": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semimonthly Day2"
+     },
+     "weekend_rule": {
+      "default": "previous",
+      "title": "Weekend Rule",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name",
+     "frequency",
+     "anchor_date"
+    ],
+    "title": "PayScheduleIn",
+    "type": "object"
+   },
+   "PaySchedulePatch": {
+    "properties": {
+     "active": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Active"
+     },
+     "amount_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Amount Cents"
+     },
+     "anchor_date": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Anchor Date"
+     },
+     "cash_account_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cash Account Id"
+     },
+     "frequency": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Frequency"
+     },
+     "name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Name"
+     },
+     "semimonthly_day1": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semimonthly Day1"
+     },
+     "semimonthly_day2": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Semimonthly Day2"
+     },
+     "weekend_rule": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Weekend Rule"
+     }
+    },
+    "title": "PaySchedulePatch",
+    "type": "object"
+   },
+   "PaymentIn": {
+    "properties": {
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "card_id": {
+      "title": "Card Id",
+      "type": "integer"
+     },
+     "month": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Month"
+     },
+     "note": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Note"
+     },
+     "paid_on": {
+      "title": "Paid On",
+      "type": "string"
+     }
+    },
+    "required": [
+     "card_id",
+     "amount_cents",
+     "paid_on"
+    ],
+    "title": "PaymentIn",
+    "type": "object"
+   },
+   "PlaidExchangeIn": {
+    "properties": {
+     "institution_name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Institution Name"
+     },
+     "public_token": {
+      "title": "Public Token",
+      "type": "string"
+     }
+    },
+    "required": [
+     "public_token"
+    ],
+    "title": "PlaidExchangeIn",
+    "type": "object"
+   },
+   "PlaidIgnoreIn": {
+    "properties": {
+     "ignored": {
+      "title": "Ignored",
+      "type": "boolean"
+     }
+    },
+    "required": [
+     "ignored"
+    ],
+    "title": "PlaidIgnoreIn",
+    "type": "object"
+   },
+   "PlaidLinkIn": {
+    "properties": {
+     "card_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Card Id"
+     },
+     "cash_account_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cash Account Id"
+     },
+     "create": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Create"
+     }
+    },
+    "title": "PlaidLinkIn",
+    "type": "object"
+   },
+   "PlaidLinkTokenIn": {
+    "properties": {
+     "android_package_name": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Android Package Name"
+     },
+     "item_id": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Item Id"
+     }
+    },
+    "title": "PlaidLinkTokenIn",
+    "type": "object"
+   },
+   "SettingsIn": {
+    "properties": {
+     "auto_log_card_payments": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Auto Log Card Payments"
+     },
+     "buffer_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Buffer Cents"
+     },
+     "cash_floor_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cash Floor Cents"
+     },
+     "cash_reserve_months": {
+      "anyOf": [
+       {
+        "maximum": 6.0,
+        "minimum": 0.0,
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cash Reserve Months"
+     },
+     "debt_share_pct": {
+      "anyOf": [
+       {
+        "maximum": 100.0,
+        "minimum": 0.0,
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Debt Share Pct"
+     },
+     "extra_override_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Extra Override Cents"
+     },
+     "strategy": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Strategy"
+     }
+    },
+    "title": "SettingsIn",
+    "type": "object"
+   },
+   "SubscriptionCancelIn": {
+    "properties": {
+     "cancelled_on": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cancelled On"
+     }
+    },
+    "title": "SubscriptionCancelIn",
+    "type": "object"
+   },
+   "SubscriptionDismissIn": {
+    "properties": {
+     "key": {
+      "title": "Key",
+      "type": "string"
+     }
+    },
+    "required": [
+     "key"
+    ],
+    "title": "SubscriptionDismissIn",
+    "type": "object"
+   },
+   "SubscriptionIn": {
+    "properties": {
+     "amount_cents": {
+      "title": "Amount Cents",
+      "type": "integer"
+     },
+     "cycle": {
+      "default": "monthly",
+      "title": "Cycle",
+      "type": "string"
+     },
+     "match_text": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Match Text"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "next_date": {
+      "title": "Next Date",
+      "type": "string"
+     },
+     "note": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Note"
+     }
+    },
+    "required": [
+     "name",
+     "amount_cents",
+     "next_date"
+    ],
+    "title": "SubscriptionIn",
+    "type": "object"
+   },
+   "UseCashIn": {
+    "properties": {
+     "amount_cents": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Amount Cents"
+     }
+    },
+    "title": "UseCashIn",
+    "type": "object"
+   },
+   "ValidationError": {
+    "properties": {
+     "ctx": {
+      "title": "Context",
+      "type": "object"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "title": "Location",
+      "type": "array"
+     },
+     "msg": {
+      "title": "Message",
+      "type": "string"
+     },
+     "type": {
+      "title": "Error Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError",
+    "type": "object"
+   }
+  }
+ },
+ "info": {
+  "title": "Paydown",
+  "version": "0.1.0"
+ },
+ "openapi": "3.1.0",
+ "paths": {
+  "/api/accounts": {
+   "get": {
+    "operationId": "list_accounts_api_accounts_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Accounts"
+   }
+  },
+  "/api/adjustments": {
+   "get": {
+    "operationId": "list_adjustments_api_adjustments_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "month",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Month"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "List Adjustments"
+   },
+   "post": {
+    "operationId": "create_adjustment_api_adjustments_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AdjustmentIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Adjustment"
+   }
+  },
+  "/api/adjustments/{item_id}": {
+   "delete": {
+    "operationId": "delete_adjustment_api_adjustments__item_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Adjustment"
+   }
+  },
+  "/api/bills/{expense_id}/paid": {
+   "post": {
+    "operationId": "mark_bill_paid_api_bills__expense_id__paid_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "expense_id",
+      "required": true,
+      "schema": {
+       "title": "Expense Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/BillPaidIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Mark Bill Paid"
+   }
+  },
+  "/api/bills/{expense_id}/paid/{due_date}": {
+   "delete": {
+    "operationId": "unmark_bill_paid_api_bills__expense_id__paid__due_date__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "expense_id",
+      "required": true,
+      "schema": {
+       "title": "Expense Id",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "path",
+      "name": "due_date",
+      "required": true,
+      "schema": {
+       "title": "Due Date",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Unmark Bill Paid"
+   }
+  },
+  "/api/card-payments/log-all": {
+   "post": {
+    "operationId": "log_all_card_payments_api_card_payments_log_all_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Log All Card Payments"
+   }
+  },
+  "/api/card-payments/unlogged": {
+   "get": {
+    "operationId": "list_unlogged_card_payments_api_card_payments_unlogged_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Unlogged Card Payments"
+   }
+  },
+  "/api/card-payments/{transaction_id}/dismiss": {
+   "post": {
+    "operationId": "dismiss_card_payment_api_card_payments__transaction_id__dismiss_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "transaction_id",
+      "required": true,
+      "schema": {
+       "title": "Transaction Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Dismiss Card Payment"
+   }
+  },
+  "/api/card-payments/{transaction_id}/log": {
+   "post": {
+    "operationId": "log_card_payment_api_card_payments__transaction_id__log_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "transaction_id",
+      "required": true,
+      "schema": {
+       "title": "Transaction Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Log Card Payment"
+   }
+  },
+  "/api/cards": {
+   "get": {
+    "operationId": "list_cards_api_cards_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Cards"
+   },
+   "post": {
+    "operationId": "create_card_api_cards_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CardIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Card"
+   }
+  },
+  "/api/cards/{card_id}": {
+   "delete": {
+    "operationId": "delete_card_api_cards__card_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "card_id",
+      "required": true,
+      "schema": {
+       "title": "Card Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Card"
+   },
+   "put": {
+    "operationId": "update_card_api_cards__card_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "card_id",
+      "required": true,
+      "schema": {
+       "title": "Card Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CardIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Card"
+   }
+  },
+  "/api/cards/{card_id}/history": {
+   "get": {
+    "operationId": "card_history_api_cards__card_id__history_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "card_id",
+      "required": true,
+      "schema": {
+       "title": "Card Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Card History"
+   }
+  },
+  "/api/cash-accounts": {
+   "get": {
+    "operationId": "list_cash_accounts_api_cash_accounts_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Cash Accounts"
+   },
+   "post": {
+    "operationId": "create_cash_account_api_cash_accounts_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CashAccountIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Cash Account"
+   }
+  },
+  "/api/cash-accounts/{account_id}": {
+   "delete": {
+    "operationId": "delete_cash_account_api_cash_accounts__account_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "account_id",
+      "required": true,
+      "schema": {
+       "title": "Account Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Cash Account"
+   },
+   "put": {
+    "operationId": "update_cash_account_api_cash_accounts__account_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "account_id",
+      "required": true,
+      "schema": {
+       "title": "Account Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CashAccountIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Cash Account"
+   }
+  },
+  "/api/deposit-rules": {
+   "get": {
+    "operationId": "list_deposit_rules_api_deposit_rules_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Deposit Rules"
+   }
+  },
+  "/api/deposit-rules/preview": {
+   "get": {
+    "operationId": "deposit_rules_preview_api_deposit_rules_preview_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "text",
+      "required": true,
+      "schema": {
+       "title": "Text",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "exclude",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Exclude"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Deposit Rules Preview"
+   }
+  },
+  "/api/deposit-rules/{rule_id}": {
+   "delete": {
+    "operationId": "delete_deposit_rule_api_deposit_rules__rule_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "rule_id",
+      "required": true,
+      "schema": {
+       "title": "Rule Id",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "clear_labels",
+      "required": false,
+      "schema": {
+       "default": false,
+       "title": "Clear Labels",
+       "type": "boolean"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Deposit Rule"
+   }
+  },
+  "/api/deposits": {
+   "get": {
+    "operationId": "list_deposits_api_deposits_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "days",
+      "required": false,
+      "schema": {
+       "default": 45,
+       "maximum": 365,
+       "minimum": 1,
+       "title": "Days",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "include_transfers",
+      "required": false,
+      "schema": {
+       "default": false,
+       "title": "Include Transfers",
+       "type": "boolean"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "List Deposits"
+   }
+  },
+  "/api/expenses": {
+   "get": {
+    "operationId": "list_expenses_api_expenses_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Expenses"
+   },
+   "post": {
+    "operationId": "create_expense_api_expenses_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ExpenseIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Expense"
+   }
+  },
+  "/api/expenses/{item_id}": {
+   "delete": {
+    "operationId": "delete_expense_api_expenses__item_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Expense"
+   },
+   "put": {
+    "operationId": "update_expense_api_expenses__item_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ExpenseIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Expense"
+   }
+  },
+  "/api/export": {
+   "get": {
+    "operationId": "export_all_api_export_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Export All"
+   }
+  },
+  "/api/goals": {
+   "get": {
+    "operationId": "list_goals_api_goals_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Goals"
+   },
+   "post": {
+    "operationId": "create_goal_api_goals_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GoalIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Goal"
+   }
+  },
+  "/api/goals/{goal_id}": {
+   "delete": {
+    "operationId": "delete_goal_api_goals__goal_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "goal_id",
+      "required": true,
+      "schema": {
+       "title": "Goal Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Goal"
+   },
+   "put": {
+    "operationId": "update_goal_api_goals__goal_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "goal_id",
+      "required": true,
+      "schema": {
+       "title": "Goal Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GoalPatch"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Goal"
+   }
+  },
+  "/api/goals/{goal_id}/move": {
+   "post": {
+    "operationId": "move_goal_api_goals__goal_id__move_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "goal_id",
+      "required": true,
+      "schema": {
+       "title": "Goal Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GoalMoveIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Move Goal"
+   }
+  },
+  "/api/health": {
+   "get": {
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Health"
+   }
+  },
+  "/api/import": {
+   "post": {
+    "operationId": "import_all_api_import_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "additionalProperties": true,
+        "title": "Data",
+        "type": "object"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Import All"
+   }
+  },
+  "/api/income": {
+   "get": {
+    "operationId": "list_income_api_income_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Income"
+   },
+   "post": {
+    "operationId": "create_income_api_income_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/IncomeIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Income"
+   }
+  },
+  "/api/income/{item_id}": {
+   "delete": {
+    "operationId": "delete_income_api_income__item_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Income"
+   },
+   "put": {
+    "operationId": "update_income_api_income__item_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/IncomeIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Income"
+   }
+  },
+  "/api/insights/debt-trend": {
+   "get": {
+    "operationId": "insights_debt_trend_api_insights_debt_trend_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "months",
+      "required": false,
+      "schema": {
+       "default": 6,
+       "maximum": 24,
+       "minimum": 1,
+       "title": "Months",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Insights Debt Trend"
+   }
+  },
+  "/api/insights/spending": {
+   "get": {
+    "operationId": "insights_spending_api_insights_spending_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "months",
+      "required": false,
+      "schema": {
+       "default": 3,
+       "maximum": 12,
+       "minimum": 1,
+       "title": "Months",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Insights Spending"
+   }
+  },
+  "/api/mobile/home": {
+   "get": {
+    "operationId": "mobile_home_api_mobile_home_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Mobile Home"
+   }
+  },
+  "/api/month/{month}": {
+   "get": {
+    "operationId": "month_bundle_api_month__month__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "month",
+      "required": true,
+      "schema": {
+       "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+       "title": "Month",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Month Bundle"
+   }
+  },
+  "/api/month/{month}/use-cash": {
+   "post": {
+    "operationId": "use_cash_api_month__month__use_cash_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "month",
+      "required": true,
+      "schema": {
+       "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+       "title": "Month",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/UseCashIn"
+         },
+         {
+          "type": "null"
+         }
+        ],
+        "title": "Body"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Use Cash"
+   }
+  },
+  "/api/pay-schedules": {
+   "get": {
+    "operationId": "list_pay_schedules_api_pay_schedules_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Pay Schedules"
+   },
+   "post": {
+    "operationId": "create_pay_schedule_api_pay_schedules_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PayScheduleIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Pay Schedule"
+   }
+  },
+  "/api/pay-schedules/detect": {
+   "post": {
+    "operationId": "pay_schedule_detect_api_pay_schedules_detect_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PayScheduleDetectIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Pay Schedule Detect"
+   }
+  },
+  "/api/pay-schedules/{schedule_id}": {
+   "delete": {
+    "operationId": "delete_pay_schedule_api_pay_schedules__schedule_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "schedule_id",
+      "required": true,
+      "schema": {
+       "title": "Schedule Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Pay Schedule"
+   },
+   "put": {
+    "operationId": "update_pay_schedule_api_pay_schedules__schedule_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "schedule_id",
+      "required": true,
+      "schema": {
+       "title": "Schedule Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PaySchedulePatch"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Pay Schedule"
+   }
+  },
+  "/api/pay-schedules/{schedule_id}/upcoming": {
+   "get": {
+    "operationId": "pay_schedule_upcoming_api_pay_schedules__schedule_id__upcoming_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "schedule_id",
+      "required": true,
+      "schema": {
+       "title": "Schedule Id",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "count",
+      "required": false,
+      "schema": {
+       "default": 6,
+       "maximum": 52,
+       "minimum": 1,
+       "title": "Count",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Pay Schedule Upcoming"
+   }
+  },
+  "/api/pay-schedules/{schedule_id}/use-as-income": {
+   "post": {
+    "operationId": "pay_schedule_use_as_income_api_pay_schedules__schedule_id__use_as_income_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "schedule_id",
+      "required": true,
+      "schema": {
+       "title": "Schedule Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Pay Schedule Use As Income"
+   }
+  },
+  "/api/payments": {
+   "get": {
+    "operationId": "list_payments_api_payments_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "month",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Month"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "List Payments"
+   },
+   "post": {
+    "operationId": "create_payment_api_payments_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PaymentIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Payment"
+   }
+  },
+  "/api/payments/{payment_id}": {
+   "delete": {
+    "operationId": "delete_payment_api_payments__payment_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "payment_id",
+      "required": true,
+      "schema": {
+       "title": "Payment Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Payment"
+   }
+  },
+  "/api/plaid/accounts": {
+   "get": {
+    "operationId": "plaid_accounts_api_plaid_accounts_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Plaid Accounts"
+   }
+  },
+  "/api/plaid/accounts/{account_id}/ignore": {
+   "post": {
+    "operationId": "plaid_ignore_account_api_plaid_accounts__account_id__ignore_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "account_id",
+      "required": true,
+      "schema": {
+       "title": "Account Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlaidIgnoreIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Ignore Account"
+   }
+  },
+  "/api/plaid/accounts/{account_id}/link": {
+   "post": {
+    "operationId": "plaid_link_account_api_plaid_accounts__account_id__link_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "account_id",
+      "required": true,
+      "schema": {
+       "title": "Account Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlaidLinkIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Link Account"
+   }
+  },
+  "/api/plaid/accounts/{account_id}/unlink": {
+   "post": {
+    "operationId": "plaid_unlink_account_api_plaid_accounts__account_id__unlink_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "account_id",
+      "required": true,
+      "schema": {
+       "title": "Account Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Unlink Account"
+   }
+  },
+  "/api/plaid/exchange": {
+   "post": {
+    "operationId": "plaid_exchange_api_plaid_exchange_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlaidExchangeIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Exchange"
+   }
+  },
+  "/api/plaid/items/{item_id}": {
+   "delete": {
+    "description": "Revoke a bank connection: calls Plaid /item/remove (invalidating the\naccess token) and deletes the item, its accounts and their synced\ntransactions locally (FK cascades).",
+    "operationId": "plaid_delete_item_api_plaid_items__item_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "item_id",
+      "required": true,
+      "schema": {
+       "title": "Item Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Delete Item"
+   }
+  },
+  "/api/plaid/link-token": {
+   "post": {
+    "operationId": "plaid_link_token_api_plaid_link_token_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlaidLinkTokenIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Plaid Link Token"
+   }
+  },
+  "/api/plaid/status": {
+   "get": {
+    "operationId": "plaid_status_api_plaid_status_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Plaid Status"
+   }
+  },
+  "/api/plaid/sync": {
+   "post": {
+    "operationId": "plaid_sync_api_plaid_sync_post",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Plaid Sync"
+   }
+  },
+  "/api/projection": {
+   "get": {
+    "operationId": "projection_api_projection_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "extra",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "maximum": 10000000000,
+         "minimum": 0,
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Extra"
+      }
+     },
+     {
+      "in": "query",
+      "name": "strategy",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Strategy"
+      }
+     },
+     {
+      "in": "query",
+      "name": "lump",
+      "required": false,
+      "schema": {
+       "default": 0,
+       "maximum": 10000000000,
+       "minimum": 0,
+       "title": "Lump",
+       "type": "integer"
+      }
+     },
+     {
+      "in": "query",
+      "name": "month",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Month"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Projection"
+   }
+  },
+  "/api/reminders": {
+   "get": {
+    "operationId": "reminders_endpoint_api_reminders_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "days",
+      "required": false,
+      "schema": {
+       "default": 3,
+       "maximum": 14,
+       "minimum": 0,
+       "title": "Days",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Reminders Endpoint"
+   }
+  },
+  "/api/safe-to-spend": {
+   "get": {
+    "operationId": "safe_to_spend_route_api_safe_to_spend_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Safe To Spend Route"
+   }
+  },
+  "/api/settings": {
+   "get": {
+    "operationId": "get_settings_api_settings_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Get Settings"
+   },
+   "put": {
+    "operationId": "put_settings_api_settings_put",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SettingsIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Put Settings"
+   }
+  },
+  "/api/subscriptions": {
+   "get": {
+    "operationId": "list_subscriptions_api_subscriptions_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Subscriptions"
+   },
+   "post": {
+    "operationId": "create_subscription_api_subscriptions_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SubscriptionIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Create Subscription"
+   }
+  },
+  "/api/subscriptions/from-expense/{expense_id}": {
+   "post": {
+    "description": "Turn a monthly bill into a subscription and switch the bill off, so\nthe plan counts it once (as a subscription), not twice.",
+    "operationId": "subscription_from_expense_api_subscriptions_from_expense__expense_id__post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "expense_id",
+      "required": true,
+      "schema": {
+       "title": "Expense Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Subscription From Expense"
+   }
+  },
+  "/api/subscriptions/suggestions": {
+   "get": {
+    "operationId": "subscription_suggestions_api_subscriptions_suggestions_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Subscription Suggestions"
+   }
+  },
+  "/api/subscriptions/suggestions/dismiss": {
+   "post": {
+    "operationId": "dismiss_subscription_suggestion_api_subscriptions_suggestions_dismiss_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SubscriptionDismissIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Dismiss Subscription Suggestion"
+   }
+  },
+  "/api/subscriptions/{subscription_id}": {
+   "delete": {
+    "operationId": "delete_subscription_api_subscriptions__subscription_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "subscription_id",
+      "required": true,
+      "schema": {
+       "title": "Subscription Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Delete Subscription"
+   },
+   "put": {
+    "operationId": "update_subscription_api_subscriptions__subscription_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "subscription_id",
+      "required": true,
+      "schema": {
+       "title": "Subscription Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SubscriptionIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Update Subscription"
+   }
+  },
+  "/api/subscriptions/{subscription_id}/cancel": {
+   "post": {
+    "operationId": "cancel_subscription_api_subscriptions__subscription_id__cancel_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "subscription_id",
+      "required": true,
+      "schema": {
+       "title": "Subscription Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/SubscriptionCancelIn"
+         },
+         {
+          "type": "null"
+         }
+        ],
+        "title": "Body"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Cancel Subscription"
+   }
+  },
+  "/api/subscriptions/{subscription_id}/reactivate": {
+   "post": {
+    "operationId": "reactivate_subscription_api_subscriptions__subscription_id__reactivate_post",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "subscription_id",
+      "required": true,
+      "schema": {
+       "title": "Subscription Id",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Reactivate Subscription"
+   }
+  },
+  "/api/transactions/labels": {
+   "post": {
+    "operationId": "bulk_set_txn_labels_api_transactions_labels_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/BulkLabelsIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Bulk Set Txn Labels"
+   }
+  },
+  "/api/transactions/{transaction_id}/label": {
+   "put": {
+    "operationId": "set_txn_label_api_transactions__transaction_id__label_put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "transaction_id",
+      "required": true,
+      "schema": {
+       "title": "Transaction Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LabelIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Set Txn Label"
+   }
+  },
+  "/api/upcoming": {
+   "get": {
+    "operationId": "upcoming_api_upcoming_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "days",
+      "required": false,
+      "schema": {
+       "default": 30,
+       "maximum": 365,
+       "minimum": 1,
+       "title": "Days",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Upcoming"
+   }
+  },
+  "/manifest.webmanifest": {
+   "get": {
+    "operationId": "webmanifest_manifest_webmanifest_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Webmanifest"
+   }
+  },
+  "/offline": {
+   "get": {
+    "operationId": "offline_page_offline_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Offline Page"
+   }
+  },
+  "/sw.js": {
+   "get": {
+    "operationId": "service_worker_sw_js_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Service Worker"
+   }
+  }
+ }
+}

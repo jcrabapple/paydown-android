@@ -1,0 +1,10 @@
+{
+  "active": [],
+  "cancelled": [],
+  "totals": {
+    "monthly_cents": 1234500,
+    "annual_cents": 1234500,
+    "active_count": 2,
+    "cancelled_count": 2
+  }
+}
