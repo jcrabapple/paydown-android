@@ -1,4 +1,4 @@
-# Paydown for Android
+# <img src="android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="40" align="center" alt=""> Paydown for Android
 
 A native Android client for [Paydown](https://github.com/jcrabapple/paydown), the self-hosted credit-card payoff and **Safe-to-Spend** budget app. Built with Flutter.
 

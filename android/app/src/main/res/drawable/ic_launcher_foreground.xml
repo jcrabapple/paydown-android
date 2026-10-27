@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paydown mark ("pay it down": an arrow landing on a baseline), the same
+     geometry as the web app's app/static/icons/icon.svg (512 units), centred
+     on the 108dp adaptive canvas with its farthest point 28dp from centre,
+     inside the 33dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="760" android:viewportHeight="760">
+    <group android:translateX="124" android:translateY="124">
+        <path android:pathData="M256,116V356M152,252L256,356L360,252"
+            android:strokeColor="#FFFFFF" android:strokeWidth="52"
+            android:strokeLineCap="round" android:strokeLineJoin="round" />
+        <path android:pathData="M156,404H356"
+            android:strokeColor="#82AEF9" android:strokeWidth="36"
+            android:strokeLineCap="round" />
+    </group>
+</vector>
